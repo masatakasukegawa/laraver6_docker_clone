@@ -1,0 +1,47 @@
+version: '3.8'
+volumes:
+  db-store:
+services:
+  web:
+    image: nginx:1.19.4-alpine
+    container_name: web_server_container
+    volumes:
+      - ./Infrastructure/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./App/laravel/public:/var/www/app/public
+    links:
+      - application
+    depends_on:
+      - application
+    ports:
+    - "8000:80"
+  application:
+    container_name: application_container
+    build:
+      context: .
+      dockerfile: ./Infrastructure/php/Dockerfile
+    volumes:
+      - ./App/laravel:/var/www/app
+      - ./Infrastructure/php/php.ini:/usr/local/etc/php/php.ini
+    links:
+      - database
+    depends_on:
+      - database
+    environment:
+      - DB_HOST=database
+      - DB_DATABASE=laravel
+      - DB_USERNAME=root
+      - DB_PASSWORD=root
+  database:
+    container_name: database_container
+    build:
+      context: .
+      dockerfile: ./Infrastructure/mysql/Dockerfile
+    volumes:
+      - db-store:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_DATABASE=laravel
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root
+      - MYSQL_ROOT_PASSWORD=root
