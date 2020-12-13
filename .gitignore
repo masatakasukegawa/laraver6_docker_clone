@@ -1,0 +1,8 @@
+.App/laravel/vendor/
+.App/laravel/node_modules/
+.App/laravel/npm-debug.log
+.App/laravel/yarn-error.log
+
+.App/laravel/storage/*.key
+.App/laravel/.env
+.App/laravel/.phpunit.result.cache
