@@ -1,10 +1,10 @@
 # 使用技術
-- PHP 7.4系
-- Laravel ６.x系
-- nginx 1.1系
-- mysql 8.0系
-- docker & docker-compose
-- git
+- [PHP 7.4系](https://www.php.net/manual/ja/index.php)
+- [Laravel ６.x系](https://readouble.com/laravel/6.x/ja/routing.html)
+- [nginx 1.1系](http://mogile.web.fc2.com/nginx/)
+- [mysql 8.0系](https://dev.mysql.com/doc/refman/8.0/en/)
+- [docker](https://docs.docker.com/) & docker-compose
+- [git](https://git-scm.com/)
 
 # ディレクトリ構成
 ## App以下  
