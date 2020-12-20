@@ -1,3 +1,3 @@
 # laraver6_docker_clone
 
-あああ
+laravel なのにlaraver　って書いちゃった
